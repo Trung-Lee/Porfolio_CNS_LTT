@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Kỹ Thuật Số | Lê Tuấn Trung</title>
+  <meta name="description" content="Portfolio Kỹ năng số của Lê Tuấn Trung - Sinh viên CNTT tại VNU-UET">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --blue-dark: #324376;
+      --blue-mid: #586BA4;
+      --blue-light: #F68E5F;
+      --blue-pale: #fff6e5;
+      --cream: #F5DD90;
+      --cream-dark: #e5cb7a;
+      --text-dark: #1a1a18;
+      --text-mid: #4a4a42;
+      --text-light: #7a7a6e;
+      --white: #ffffff;
+      --accent: #F76C5E;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(248, 245, 240, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(15, 43, 70, 0.1);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--blue-dark);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue-mid);
+    }
+
+    /* HERO */
+    #home {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 6rem 5rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: url('bg.jpg') center/cover no-repeat;
+      /* background: linear-gradient(135deg, #f4f7f9 55%, #ebf8ff 100%); */
+    }
+
+    .hero-pattern {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      background-image: radial-gradient(circle at 1px 1px, rgba(43, 108, 176, 0.12) 1px, transparent 0);
+      background-size: 32px 32px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(8px);
+      max-width: 600px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-mid);
+      background: rgba(43, 108, 176, 0.1);
+      padding: 0.4rem 1rem;
+      border-radius: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      line-height: 1.1;
+      color: var(--blue-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--blue-mid);
+    }
+
+    .hero-title {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--text-mid);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-meta span {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-meta span::before {
+      content: '◆';
+      color: var(--blue-light);
+      font-size: 0.5rem;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--blue-mid);
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 0.4rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .hero-cta:hover {
+      background: var(--blue-dark);
+      transform: translateY(-2px);
+    }
+
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .avatar-ring {
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .avatar-inner {
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--blue-pale), var(--blue-mid));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      color: white;
+      font-weight: 700;
+      overflow: hidden;
+    }
+
+    .avatar-badge {
+      position: absolute;
+      bottom: 20px;
+      right: 10px;
+      background: white;
+      border: 2px solid var(--blue-pale);
+      border-radius: 1rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--blue-dark);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-pills {
+      position: absolute;
+      top: 30px;
+      left: -10px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .stat-pill {
+      background: white;
+      border-radius: 0.8rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--blue-dark);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      white-space: nowrap;
+    }
+
+    .stat-pill span {
+      color: var(--blue-mid);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 5rem 5rem;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--blue-mid);
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--blue-light);
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--blue-dark);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--text-mid);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ABOUT */
+    #about {
+      background: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: var(--text-mid);
+      margin-bottom: 1.2rem;
+    }
+
+    .about-text strong {
+      color: var(--blue-dark);
+      font-weight: 600;
+    }
+
+    .goals-list {
+      list-style: none;
+    }
+
+    .goals-list li {
+      padding: 1rem 1.2rem 1rem 1.5rem;
+      border-left: 3px solid var(--blue-light);
+      margin-bottom: 1rem;
+      background: var(--cream);
+      border-radius: 0 0.5rem 0.5rem 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-mid);
+    }
+
+    .goals-list li strong {
+      display: block;
+      color: var(--blue-dark);
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .skills-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+    }
+
+    .chip {
+      padding: 0.35rem 0.9rem;
+      border: 1.5px solid var(--blue-light);
+      border-radius: 2rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--blue-mid);
+      background: rgba(66, 153, 225, 0.06);
+    }
+
+    /* PROJECTS */
+    #projects {
+      background: var(--cream);
+    }
+
+    
+    .toc-container {
+      background: var(--white);
+      border: 1px solid rgba(15, 43, 70, 0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 3rem;
+      margin-top: 2rem;
+    }
+    .toc-container h3 {
+      color: var(--blue-dark);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    .toc-container ol {
+      list-style-position: inside;
+      column-count: 2;
+    }
+    .toc-container ol li {
+      margin-bottom: 0.8rem;
+    }
+    .toc-container ol li a {
+      color: var(--blue-mid);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .toc-container ol li a:hover {
+      color: var(--blue-dark);
+      text-decoration: underline;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: var(--white);
+      border: 1px solid rgba(15, 43, 70, 0.1);
+      border-radius: 1rem;
+      overflow: hidden;
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(15, 43, 70, 0.12);
+    }
+
+    .card-header {
+      padding: 1.6rem 1.6rem 1rem;
+      border-bottom: 1px solid var(--cream-dark);
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .card-icon.green {
+      background: var(--blue-pale);
+    }
+
+    .card-icon.amber {
+      background: #fef3c7;
+    }
+
+    .card-icon.blue {
+      background: #dbeafe;
+    }
+
+    .card-icon.pink {
+      background: #fce7f3;
+    }
+
+    .card-icon.teal {
+      background: #ccfbf1;
+    }
+
+    .card-icon.purple {
+      background: #ede9fe;
+    }
+
+    .card-num {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--text-light);
+      text-transform: uppercase;
+    }
+
+    .card-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--blue-dark);
+      margin: 0.15rem 0;
+    }
+
+    .card-subject {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    .card-body {
+      padding: 1.2rem 1.6rem 1.6rem;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--text-mid);
+      margin-bottom: 1.2rem;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 0.3rem;
+      background: var(--blue-pale);
+      color: var(--blue-mid);
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--blue-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .card-link:hover {
+      color: var(--blue-dark);
+    }
+
+    .card-link::after {
+      content: '→';
+      transition: transform 0.2s;
+    }
+
+    .card-link:hover::after {
+      transform: translateX(4px);
+    }
+
+    /* REFLECTION */
+    #reflection {
+      background: var(--blue-dark);
+      color: white;
+    }
+
+    #reflection .section-label {
+      color: var(--blue-light);
+    }
+
+    #reflection .section-label::before {
+      background: var(--blue-light);
+    }
+
+    #reflection .section-title {
+      color: white;
+    }
+
+    #reflection .section-sub {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .reflection-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .reflect-box {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 1rem;
+      padding: 1.8rem;
+    }
+
+    .reflect-box h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--blue-light);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .reflect-box h3::before {
+      content: attr(data-icon);
+      font-size: 1.2rem;
+    }
+
+    .reflect-box p {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .lessons-list {
+      list-style: none;
+    }
+
+    .lessons-list li {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .lessons-list li::before {
+      content: '✦';
+      color: var(--blue-light);
+      font-size: 0.6rem;
+      margin-top: 0.3rem;
+      flex-shrink: 0;
+    }
+
+    .quote-block {
+      grid-column: 1 / -1;
+      background: rgba(66, 153, 225, 0.15);
+      border: 1px solid rgba(66, 153, 225, 0.3);
+      border-radius: 1rem;
+      padding: 2rem 2.5rem;
+      text-align: center;
+    }
+
+    .quote-block blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      color: white;
+      line-height: 1.5;
+      margin-bottom: 0.8rem;
+    }
+
+    .quote-block cite {
+      font-size: 0.82rem;
+      color: var(--blue-light);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--blue-dark);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 2.5rem 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    .footer-info {
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    .footer-tag {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.5);
+      background: rgba(255, 255, 255, 0.07);
+      padding: 0.4rem 1rem;
+      border-radius: 2rem;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    .hero-content {
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .hero-visual {
+      animation: fadeUp 0.7s 0.15s ease both;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-links {
+        gap: 1.2rem;
+      }
+
+      #home,
+      section {
+        padding: 5rem 2rem;
+      }
+
+      #home {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-meta {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        display: none;
+      }
+
+      .about-grid,
+      .reflection-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .toc-container ol {
+        column-count: 1;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        padding: 2rem;
+      }
+    }
+
+    /* MODAL SYSTEM */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 43, 70, 0.4);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 1.5rem;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal-container {
+      background: var(--white);
+      border: 1px solid rgba(15, 43, 70, 0.15);
+      border-radius: 1.5rem;
+      width: 100%;
+      max-width: 760px;
+      max-height: 85vh;
+      overflow-y: auto;
+      position: relative;
+      padding: 2.5rem;
+      box-shadow: 0 24px 64px rgba(15, 43, 70, 0.2);
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .modal-container {
+      transform: scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: var(--cream);
+      border: 1px solid var(--cream-dark);
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-mid);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .modal-close:hover {
+      background: var(--blue-pale);
+      color: var(--blue-dark);
+    }
+
+    .modal-header {
+      border-bottom: 2px solid var(--cream);
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue-mid);
+      background: rgba(43, 108, 176, 0.08);
+      padding: 0.3rem 0.8rem;
+      border-radius: 1rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--blue-dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .modal-subject {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    .modal-body {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: var(--text-mid);
+    }
+
+    .modal-body h4 {
+      font-size: 1rem;
+      color: var(--blue-dark);
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .modal-body ul {
+      list-style: none;
+      margin: 0.5rem 0;
+    }
+
+    .modal-body ul li {
+      padding: 0.3rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .modal-body ul li::before {
+      content: '▸';
+      color: var(--blue-light);
+      position: absolute;
+      left: 0;
+    }
+
+    .modal-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin: 1.5rem 0;
+    }
+
+    .gallery-item {
+      background: var(--cream);
+      border-radius: 0.7rem;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-size: 0.8rem;
+      border: 1px solid var(--cream-dark);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <!-- CHỈNH SỬA: Đổi tên logo ở đây -->
+    <div class="nav-logo">LTT — Portfolio</div>
+    <ul class="nav-links">
+      <li><a href="#home">Trang chủ</a></li>
+      <li><a href="#about">Giới thiệu</a></li>
+      <li><a href="#projects">Sản phẩm</a></li>
+      <li><a href="#reflection">Tổng kết</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <!-- CHỈNH SỬA: Đổi tên, MSSV, email, lớp trong phần này -->
+  <section id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-pattern"></div>
+
+    <div class="hero-content">
+      <span class="hero-tag">Portfolio Kỹ Năng Số</span>
+      <h1 class="hero-name">Lê Tuấn<br><em>Trung</em></h1>
+      <p class="hero-title">Sinh viên năm nhất · Chuyên ngành Công nghệ Thông tin<br>
+        Trường Đại học Công Nghệ Đại học Quốc gia Hà Nội</p>
+      <div class="hero-meta">
+        <span>MSSV: 25020419</span>
+        <span>Email Edu: 25020419@vnu.edu.vn</span>
+        <span>Email cá nhân: tuantrungbeo@gmail.com</span>
+      </div>
+      <a href="#projects" class="hero-cta">Xem sản phẩm ↓</a>
+    </div>
+
+    <div class="hero-visual">
+      <div class="avatar-ring">
+        <div class="stat-pills">
+          <!-- CHỈNH SỬA: Đổi số sản phẩm/tuần học -->
+          <div class="stat-pill"><span>6</span> Sản phẩm</div>
+          <div class="stat-pill"><span>15</span> Tuần học</div>
+        </div>
+        <div class="avatar-inner"> <img src="IMG_0980 - 4x6.jpg" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" alt="Image"></div>
+        <div class="avatar-badge">🎓 VNU-UET</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <!-- CHỈNH SỬA: Đổi nội dung giới thiệu bản thân và mục tiêu -->
+  <section id="about">
+    <div class="section-label">Giới thiệu</div>
+    <h2 class="section-title">Về bản thân & Mục tiêu</h2>
+    <p class="section-sub">Hành trình phát triển kỹ năng số qua từng tuần học tại VNU-UET</p>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Tôi là <strong>Lê Tuấn Trung</strong>, sinh viên ngành Công nghệ Thông tin tại Trường Đại học Công Nghệ Đại học Quốc gia Hà Nội. Trong thời đại số hóa, tôi nhận thấy việc trang bị kỹ năng số không chỉ giúp tối ưu hóa học
+          tập mà còn mở ra nhiều cơ hội nghề nghiệp.</p>
+        <p>Qua học phần <strong>"Công nghệ số"</strong>, tôi đã được tiếp cận và thực hành các công cụ số thiết yếu
+          — từ quản lý tệp tin, prompt engineering, tìm kiếm thông tin đến ứng dụng AI có trách nhiệm, sáng tạo nội dung số và hợp tác trực tuyến.</p>
+
+        <!-- CHỈNH SỬA: Đổi/thêm/bớt các skill chips -->
+        <div class="skills-chips">
+          <span class="chip">File Management</span>
+          <span class="chip">Prompt Engineering</span>
+          <span class="chip">Google Scholar</span>
+          <span class="chip">AI & ChatGPT</span>
+          <span class="chip">Trello</span>
+          <span class="chip">GitHub</span>
+          <span class="chip">Discord</span>
+        </div>
+      </div>
+
+      <div>
+        <!-- CHỈNH SỬA: Đổi nội dung mục tiêu -->
+        <ul class="goals-list">
+          <li>
+            <strong>🎯 Mục tiêu học tập (trước mắt)</strong>
+            Xây dựng nền tảng tư duy logic và toán học vững chắc qua các học phần kỹ thuật lõi.
+            Trúng tuyển và phát triển năng lực nghiên cứu phần mềm tại phòng lab iSE.
+            Ra trường với bằng giỏi (GPA 3.2+).
+          </li>
+          <li>
+            <strong>🌟 Định hướng phát triển cá nhân</strong>
+            Đi sâu vào lĩnh vực Automated Software Engineering (ASE) và AutoML, tập trung nghiên cứu cách tối ưu hóa các mô hình AI từ bên trong thay vì chỉ sử dụng chúng như một "hộp đen".
+            Tự tay thiết kế và phát triển một hệ thống trợ lý ảo AI cá nhân hóa, có khả năng tương tác và giao tiếp thời gian thực sinh động (mang hơi hướng Nero-sama), tích hợp chặt chẽ với các công cụ tự động hóa.
+            Học hỏi thêm về thiết kế để ứng dụng vào hệ thống trợ lý ảo của cá nhân.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <!-- CHỈNH SỬA: Mỗi project-card tương ứng 1 bài tập. Đổi tiêu đề, mô tả, tags -->
+  <section id="projects">
+    <div class="section-label">Sản phẩm học tập</div>
+    <h2 class="section-title">Bài tập & Dự án</h2>
+    <p class="section-sub">Tổng hợp các dự án đã làm trong quá trình học tập môn Công nghệ số</p>
+
+    
+    <div class="toc-container">
+      <h3>Mục lục sản phẩm:</h3>
+      <ol>
+        <li><a href="javascript:void(0)" onclick="openModal('modal-1')">Tuần 1 — Bài 1: Bài tập thực hành quản lý tệp</a></li>
+        <li><a href="javascript:void(0)" onclick="openModal('modal-2')">Tuần 4 — Bài 2: Sử dụng AI viết Writing Prompt</a></li>
+        <li><a href="javascript:void(0)" onclick="openModal('modal-3')">Tuần 7 — Bài 3: Tìm kiếm & Đánh giá thông tin</a></li>
+        <li><a href="javascript:void(0)" onclick="openModal('modal-4')">Tuần 6 — Bài 4: Sử dụng AI có trách nhiệm</a></li>
+        <li><a href="javascript:void(0)" onclick="openModal('modal-5')">Tuần 11 — Bài 5: Ứng dụng AI tạo sinh nội dung số</a></li>
+        <li><a href="javascript:void(0)" onclick="openModal('modal-6')">Tuần 14 — Bài 6: Công cụ hợp tác trực tuyến</a></li>
+      </ol>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- BÀI 1 -->
+      <div class="project-card" onclick="openModal('modal-1')">
+        <div class="card-header">
+          <div class="card-icon green">📁</div>
+          <div>
+            <div class="card-num">Tuần 1 — Bài 1</div>
+            <div class="card-name">Bài tập thực hành quản lý tệp</div>
+            <div class="card-subject">File Management</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Thực hành quản lý tệp tin và thư mục trên Windows: tạo, đổi tên, sao chép, di chuyển, xóa và khôi phục tệp từ Thùng rác.</p>
+          <div class="card-tags">
+            <span class="tag">File Explorer</span>
+            <span class="tag">Windows</span>
+            <span class="tag">File Management</span>
+          </div>
+          <div style="display: flex; gap: 20px; align-items: center; margin-top: 1.5rem;"><span class="card-link" style="margin-top: 0;">Xem chi tiết</span><a href="baitapthuchanhtuan1bai1.pdf" download class="card-link" style="margin-top: 0; color: #e63946; text-decoration: none; display: flex; align-items: center; gap: 5px;" onclick="event.stopPropagation()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Tải PDF</a></div>
+        </div>
+      </div>
+
+      <!-- BÀI 2 -->
+      <div class="project-card" onclick="openModal('modal-2')">
+        <div class="card-header">
+          <div class="card-icon amber">🤖</div>
+          <div>
+            <div class="card-num">Tuần 4 — Bài 2</div>
+            <div class="card-name">Sử dụng AI viết Writing Prompt</div>
+            <div class="card-subject">Prompt Engineering</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Xây dựng và phân tích các phiên bản prompt từ cơ bản đến nâng cao, áp dụng kỹ thuật Role-prompting, Chain-of-Thought và Few-shot.</p>
+          <div class="card-tags">
+            <span class="tag">ChatGPT</span>
+            <span class="tag">Prompt Engineering</span>
+            <span class="tag">Chain-of-Thought</span>
+          </div>
+          <div style="display: flex; gap: 20px; align-items: center; margin-top: 1.5rem;"><span class="card-link" style="margin-top: 0;">Xem chi tiết</span><a href="trainwritingprompttuan3.pdf" download class="card-link" style="margin-top: 0; color: #e63946; text-decoration: none; display: flex; align-items: center; gap: 5px;" onclick="event.stopPropagation()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Tải PDF</a></div>
+        </div>
+      </div>
+
+      <!-- BÀI 3 -->
+      <div class="project-card" onclick="openModal('modal-3')">
+        <div class="card-header">
+          <div class="card-icon blue">🔍</div>
+          <div>
+            <div class="card-num">Tuần 7 — Bài 3</div>
+            <div class="card-name">Tìm kiếm & Đánh giá thông tin</div>
+            <div class="card-subject">Information Literacy</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Nghiên cứu kiến trúc hệ thống Game Pixel 2.5D trên JavaFX: tìm kiếm tài liệu học thuật, đánh giá độ tin cậy và trích dẫn theo chuẩn Harvard.</p>
+          <div class="card-tags">
+            <span class="tag">Google Scholar</span>
+            <span class="tag">IEEE Xplore</span>
+            <span class="tag">Harvard Citation</span>
+          </div>
+          <div style="display: flex; gap: 20px; align-items: center; margin-top: 1.5rem;"><span class="card-link" style="margin-top: 0;">Xem chi tiết</span><a href="baocaotimkiemdanhgiatthttuan2.pdf" download class="card-link" style="margin-top: 0; color: #e63946; text-decoration: none; display: flex; align-items: center; gap: 5px;" onclick="event.stopPropagation()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Tải PDF</a></div>
+        </div>
+      </div>
+
+      <!-- BÀI 4 -->
+      <div class="project-card" onclick="openModal('modal-4')">
+        <div class="card-header">
+          <div class="card-icon pink">⚖️</div>
+          <div>
+            <div class="card-num">Tuần 6 — Bài 4</div>
+            <div class="card-name">Sử dụng AI có trách nhiệm</div>
+            <div class="card-subject">AI Ethics</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Nghiên cứu chính sách AI tại VNU, thực hành tương tác AI với Gemini, phân tích đạo đức học thuật và xây dựng bộ nguyên tắc cá nhân.</p>
+          <div class="card-tags">
+            <span class="tag">AI Ethics</span>
+            <span class="tag">Gemini</span>
+            <span class="tag">AutoML</span>
+          </div>
+          <div style="display: flex; gap: 20px; align-items: center; margin-top: 1.5rem;"><span class="card-link" style="margin-top: 0;">Xem chi tiết</span><a href="bai4tuan6.pdf" download class="card-link" style="margin-top: 0; color: #e63946; text-decoration: none; display: flex; align-items: center; gap: 5px;" onclick="event.stopPropagation()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Tải PDF</a></div>
+        </div>
+      </div>
+
+      <!-- BÀI 5 -->
+      <div class="project-card" onclick="openModal('modal-5')">
+        <div class="card-header">
+          <div class="card-icon teal">✨</div>
+          <div>
+            <div class="card-num">Tuần 11 — Bài 5</div>
+            <div class="card-name">Ứng dụng AI tạo sinh nội dung số</div>
+            <div class="card-subject">AI Content Creation</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Sử dụng Claude, DALL-E 3 và Canva AI để tạo bài viết blog hoàn chỉnh về chủ đề "AI – Thách thức và Cơ hội cho Sinh viên IT".</p>
+          <div class="card-tags">
+            <span class="tag">Claude</span>
+            <span class="tag">DALL-E 3</span>
+            <span class="tag">Canva AI</span>
+          </div>
+          <div style="display: flex; gap: 20px; align-items: center; margin-top: 1.5rem;"><span class="card-link" style="margin-top: 0;">Xem chi tiết</span><a href="bao_cao_ai_sinh_vien_it_tuan5.pdf" download class="card-link" style="margin-top: 0; color: #e63946; text-decoration: none; display: flex; align-items: center; gap: 5px;" onclick="event.stopPropagation()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Tải PDF</a></div>
+        </div>
+      </div>
+
+      <!-- BÀI 6 -->
+      <div class="project-card" onclick="openModal('modal-6')">
+        <div class="card-header">
+          <div class="card-icon purple">🤝</div>
+          <div>
+            <div class="card-num">Tuần 14 — Bài 6</div>
+            <div class="card-name">Công cụ hợp tác trực tuyến</div>
+            <div class="card-subject">Online Collaboration</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-desc">Xây dựng hệ thống cộng tác trực tuyến cho dự án Cloud Auction System bằng Trello, GitHub và Discord trong 1 tuần làm việc nhóm.</p>
+          <div class="card-tags">
+            <span class="tag">Trello</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">Discord</span>
+          </div>
+          <div style="display: flex; gap: 20px; align-items: center; margin-top: 1.5rem;"><span class="card-link" style="margin-top: 0;">Xem chi tiết</span><a href="baocaocanhantrungleetuan4.pdf" download class="card-link" style="margin-top: 0; color: #e63946; text-decoration: none; display: flex; align-items: center; gap: 5px;" onclick="event.stopPropagation()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Tải PDF</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFLECTION -->
+  <!-- CHỈNH SỬA: Đổi nội dung chiêm nghiệm -->
+  <section id="reflection">
+    <div class="section-label">Tổng kết</div>
+    <h2 class="section-title">Nhìn lại hành trình</h2>
+    <p class="section-sub">Những bài học và trải nghiệm quý giá từ học phần Công nghệ số</p>
+
+    <div class="reflection-grid">
+      <div class="reflect-box">
+        <h3 data-icon="💡">Điều tôi học được</h3>
+        <p>Kỹ năng số không chỉ là biết sử dụng máy tính, mà là khả năng tư duy, sáng tạo và giải quyết vấn đề trong
+          môi trường số. Mỗi công cụ đều có sức mạnh riêng khi ta biết khai thác đúng cách. Hiệu quả phối hợp nhóm đến từ việc gán cho mỗi công cụ một chức năng rõ ràng và duy trì kỷ luật cập nhật.</p>
+      </div>
+
+      <div class="reflect-box">
+        <h3 data-icon="⚡">Bài học sâu sắc nhất</h3>
+        <ul class="lessons-list">
+          <li>Tư duy phản biện khi tiếp nhận thông tin trên Internet</li>
+          <li>Kỹ năng trình bày ý tưởng một cách chuyên nghiệp</li>
+          <li>Ứng dụng AI có trách nhiệm và đạo đức</li>
+          <li>Bảo mật thông tin cá nhân trong thời đại số</li>
+        </ul>
+      </div>
+
+      <div class="quote-block">
+        <blockquote>"Công nghệ chỉ là công cụ. Chính con người mới là yếu tố quyết định."</blockquote>
+        <cite>— Bill Gates</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <!-- CHỈNH SỬA: Đổi tên và thông tin footer -->
+  <footer>
+    <div class="footer-brand">LTT — Portfolio 2025</div>
+    <div class="footer-info">Lê Tuấn Trung · MSSV: 25020098 · HCMUTE</div>
+    <div class="footer-tag">Công nghệ số</div>
+  </footer>
+
+  <!-- MODALS -->
+  <!-- CHỈNH SỬA: Mỗi modal chứa chi tiết của từng bài tập -->
+  <!-- Đổi nội dung, thêm ảnh vào gallery-item bằng <img src="images/tên_ảnh.png"> -->
+
+  <!-- MODAL BÀI 1 -->
+  <div class="modal-overlay" id="modal-1">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeModal('modal-1')">×</button>
+      <div class="modal-header">
+        <div class="modal-tag">Tuần 1 — Bài 1</div>
+        <h3 class="modal-title">Bài tập thực hành quản lý tệp</h3>
+        <div class="modal-subject">File Management · Quản lý tệp và thư mục</div>
+      </div>
+      <div class="modal-body">
+<p><strong>Bài tập thực hành: Bài tập 1</strong></p>
+<p><strong>Thực hiện:</strong></p>
+<ul>
+  <li><strong>Mở File Explorer:</strong> Nhấn tổ hợp phím Windows + E hoặc nhấp vào biểu tượng thư mục màu vàng trên thanh tác vụ.</li>
+  <img src="images_ordered/modal1_img1.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+  <li><strong>Truy cập ổ đĩa/ thư mục:</strong> Ở cột bên trái, nhấp vào This PC, sau đó nhấp đúp vào một ổ đĩa không phải ổ hệ thống (ví dụ: ổ D: hoặc E:). Nếu chỉ có ổ C:, hãy vào thư mục Documents.</li>
+  <img src="images_ordered/modal1_img2.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+  <li><strong>Tạo thư mục mới:</strong> Nhấp chuột phải vào một khoảng trống -> chọn New -> Folder. Đặt tên thư mục là ThucHanh_hotensinhvien (ví dụ: ThucHanh_NguyenVanA). Nhấn Enter.</li>
+  <img src="images_ordered/modal1_img4.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">  
+  <img src="images_ordered/modal1_img3.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+
+  <li><strong>Vào thư mục vừa tạo:</strong> Nhấp đúp vào thư mục ThucHanh_LeTuanTrung.</li>
+  <img src="images_ordered/modal1_img5.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+
+  <li><strong>Tạo tệp tin văn bản:</strong> Nhấp chuột phải vào khoảng trống -> New -> Text Document. Đặt tên là GhiChu.txt. Nhấn Enter.</li>
+  <img src="images_ordered/modal1_img6.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+  <img src="images_ordered/modal1_img7.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+  
+  <li><strong>Đổi tên tệp tin:</strong> Nhấp chuột phải vào tệp GhiChu.txt -> chọn Rename. Đổi tên thành GhiChuQuanTrong.txt. Nhấn Enter.</li>
+  <img src="images_ordered/modal1_img8.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+  <img src="images_ordered/modal1_img9.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+
+  <li><strong>Tạo thư mục con:</strong> Trong thư mục ThucHanh_LeTuanTrung, nhấp chuột phải -> New -> Folder. Đặt tên là TaiLieu.</li>
+  <img src="images_ordered/modal1_img10.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+
+</ul>
+<p><strong>Sao chép tệp tin (Copy & Paste):</strong></p>
+<ul>
+  <li>Nhấp chuột phải vào tệp GhiChuQuanTrong.txt -> chọn Copy (hoặc chọn tệp rồi nhấn Ctrl + C).</li>
+  <img src="images_ordered/modal1_img11.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+
+  <li>Nhấp đúp vào thư mục TaiLieu, nhấp chuột phải vào khoảng trống bên trong -> chọn Paste (hoặc nhấn Ctrl + V). Bây giờ bạn có một bản sao của tệp trong thư mục TaiLieu.</li>
+  <img src="images_ordered/modal1_img12.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+
+</ul>
+<p><strong>Di chuyển tệp tin (Cut & Paste):</strong></p>
+<ul>
+  <li>Quay lại thư mục ThucHanh_LeTuanTrung. Tạo một tệp mới tên là DiChuyen.txt.</li>
+  <img src="images_ordered/modal1_img13.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+
+  <li>Nhấp chuột phải vào tệp DiChuyen.txt -> chọn Cut (hoặc chọn tệp rồi nhấn Ctrl + X).</li>
+  <img src="images_ordered/modal1_img14.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+
+  <li>Nhấp đúp vào thư mục TaiLieu, nhấp chuột phải vào khoảng trống -> chọn Paste (hoặc nhấn Ctrl + V). Tệp gốc đã biến mất khỏi vị trí cũ và chỉ còn ở vị trí mới.</li>
+  <img src="images_ordered/modal1_img15.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+  <img src="images_ordered/modal1_img16.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+
+</ul>
+<p><strong>Xóa tệp tin:</strong> Trong thư mục TaiLieu, nhấp chuột phải vào tệp GhiChuQuanTrong.txt -> chọn Delete. Tệp sẽ được chuyển vào Thùng rác (Recycle Bin).</p>
+<img src="images_ordered/modal1_img17.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<img src="images_ordered/modal1_img18.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<p><strong>Xóa vĩnh viễn:</strong> Chọn tệp DiChuyen.txt, nhấn giữ phím Shift và nhấn phím Delete. Một cảnh báo sẽ hiện ra. Nếu đồng ý, tệp sẽ bị xóa vĩnh viễn mà không qua Thùng rác.</p>
+<img src="images_ordered/modal1_img19.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<p><strong>Khôi phục từ Thùng rác (Tùy chọn):</strong> Tìm biểu tượng Recycle Bin trên màn hình nền, nhấp đúp để mở. Tìm tệp GhiChuQuanTrong.txt đã xóa, nhấp chuột phải vào nó và chọn Restore. Tệp sẽ quay trở lại vị trí ban đầu.</p>
+<img src="images_ordered/modal1_img20.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<img src="images_ordered/modal1_img21.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL BÀI 2 -->
+  <div class="modal-overlay" id="modal-2">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeModal('modal-2')">×</button>
+      <div class="modal-header">
+        <div class="modal-tag">Tuần 4 — Bài 2</div>
+        <h3 class="modal-title">Sử dụng AI viết Writing Prompt</h3>
+        <div class="modal-subject">Prompt Engineering · Kỹ thuật đặt câu hỏi AI</div>
+      </div>
+      <div class="modal-body">
+<p><strong>Lựa chọn và phân tích tác vụ học tập</strong></p>
+<p>Việc ứng dụng AI trong học tập cần giải quyết đúng những rào cản nhận thức cốt lõi. Dưới đây là ba tác vụ được lựa chọn cùng phân tích chuyên sâu về mục tiêu và thách thức của từng quá trình:</p>
+<ul>
+  <li><strong>Tác vụ 1:</strong> giải thích khái niệm phức tạp, cụ thể là "Định luật bảo toàn mô men động lượng" trong môn Vật lý đại cương (Cơ học). Mục tiêu là giúp sinh viên thấu hiểu bản chất hiện tượng vật lý thông qua trực giác thực tế. Thách thức lớn nhất là đại lượng này rất trừu tượng và khó hình dung trong không gian, khiến sinh viên thường có xu hướng học vẹt các phương trình toán học khô khan để đi thi mà bỏ qua ý nghĩa cốt lõi của bài toán.</li>
+  <li><strong>Tác vụ 2:</strong> tạo bộ câu hỏi ôn tập dựa trên tình huống thực tiễn cho kỹ năng xây dựng giao diện UI/UX bằng JavaFX. Mục tiêu là chuyển đổi từ việc ghi nhớ lý thuyết sang kiểm tra năng lực giải quyết vấn đề (problem-solving). Thách thức của quá trình này là các giáo trình thường chỉ hướng dẫn cú pháp hàm cơ bản, thiếu vắng các bài tập gỡ lỗi layout thực chiến, dẫn đến việc sinh viên lúng túng khi tích hợp giao diện vào dự án thực tế.</li>
+  <li><strong>Tác vụ 3:</strong> tóm tắt tài liệu học thuật cho nội dung "Lý thuyết đồ thị và Thuật toán" trong môn Toán rời rạc. Mục tiêu là cô đọng luồng chạy của thuật toán thành dạng giả mã (pseudocode) và chỉ ra các điểm nghẽn tư duy. Thách thức khi tự học phần này là tài liệu gốc thường sử dụng hệ thống ký hiệu toán học hàn lâm, gây rào cản lớn cho sinh viên trong việc dịch thuật từ logic toán học sang tư duy lập trình máy tính.</li>
+</ul>
+
+<p><strong>Xây dựng các phiên bản prompt</strong></p>
+<div style="overflow-x:auto;">
+<table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-bottom: 1rem;">
+  <tr>
+    <th>Tên tác vụ</th>
+    <th>Prompt cơ bản</th>
+    <th>Prompt cải tiến</th>
+    <th>Prompt nâng cao</th>
+  </tr>
+  <tr>
+    <td>Tóm tắt một bài đọc/tài liệu học thuật</td>
+    <td>Tóm tắt nội dung về thuật toán Dijkstra giúp tôi.</td>
+    <td>Hãy đọc tài liệu về "Thuật toán tìm đường đi ngắn nhất Dijkstra" trong Lý thuyết đồ thị và tóm tắt lại. Nêu rõ mục đích thuật toán, liệt kê các bước chạy cơ bản và ưu/nhược điểm của nó.</td>
+    <td>- Role: Bạn là một trợ giảng môn Toán rời rạc siêu có tâm.<br>- Task: Hãy tóm tắt luồng hoạt động của "Thuật toán Dijkstra" để sinh viên ôn thi.<br>- Format: Trình bày theo đúng cấu trúc 3 phần sau:<br>(1) Mục tiêu thực tiễn của thuật toán (gói gọn trong 1 câu).<br>(2) Tóm tắt các bước chạy thuật toán dưới dạng mã giả (pseudocode) ngắn gọn nhất. (3) Chỉ ra một sai lầm logic phổ biến nhất mà sinh viên thường mắc phải khi tự code thuật toán này và cách phòng tránh.<br>- Constraint: Sử dụng định dạng Markdown, in đậm các keyword quan trọng để dễ nhìn.</td>
+  </tr>
+  <tr>
+    <td>Giải thích một khái niệm phức tạp</td>
+    <td>Giải thích định luật bảo toàn mô men động lượng là gì.</td>
+    <td>Hãy giải thích định luật bảo toàn mô men động lượng trong môn Vật lý đại cương. Cung cấp một ví dụ thực tế và giải thích ngắn gọn, dễ hiểu để tôi ôn thi.</td>
+    <td>- Role: Đóng vai một giáo sư Vật lý đại cương có khả năng diễn đạt bình dân học vụ.<br>- Task: Hãy giải thích "Định luật bảo toàn mô men động lượng" cho sinh viên năm nhất.<br>- Constraint: Tuyệt đối không sử dụng công thức toán học và giới hạn độ dài dưới 250 từ.<br>- Chain-of-Thought: Hãy suy nghĩ từng bước. Đầu tiên, giải thích khái niệm cốt lõi bằng một phép ẩn dụ thực tế (ví dụ: vận động viên trượt băng nghệ thuật thu tay lại thì xoay nhanh hơn). Sau đó, đúc kết lại ý nghĩa của định luật bằng một câu khẩu quyết dễ nhớ.</td>
+  </tr>
+  <tr>
+    <td>Tạo bộ câu hỏi ôn tập cho một chủ đề</td>
+    <td>Tạo cho tôi một vài câu hỏi ôn tập về lập trình JavaFX.</td>
+    <td>Tạo bộ câu hỏi thực hành gồm 3 tình huống lỗi (bug) thường gặp khi thiết kế giao diện UI/UX bằng JavaFX. Vui lòng cung cấp đáp án chi tiết và hướng dẫn cách sửa lỗi cho từng tình huống.</td>
+    <td>- Role: Bạn là một Senior Developer đang phỏng vấn thực tập sinh.<br>- Task: Hãy tạo một bài kiểm tra thực hành gồm 2 tình huống gỡ lỗi (scenario-based) về UI/UX trong JavaFX.<br>- Few-shot / Ví dụ tình huống: Tình huống 1 phải liên quan đến việc giao diện GridPane bị vỡ tỷ lệ khi người dùng kéo giãn kích thước cửa sổ. Tình huống 2 liên quan đến lỗi "Not on FX application thread" khi cập nhật UI từ luồng nền.<br>- Format: Với mỗi tình huống, hãy viết một đoạn mã lỗi mẫu (dưới 10 dòng) và yêu cầu ứng viên phân tích nguyên nhân cũng như cách sửa.</td>
+  </tr>
+</table>
+</div>
+
+<p><strong>Thử nghiệm và so sánh kết quả</strong></p>
+<p>- Tóm tắt một bài đọc/tài liệu học thuật:<br>
++ Cơ bản:<br>
+<img src="images_ordered/modal2_img1.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<img src="images_ordered/modal2_img2.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
++ Cải tiến:<br>
+<img src="images_ordered/modal2_img3.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<img src="images_ordered/modal2_img4.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
++ Nâng cao:<br>
+<img src="images_ordered/modal2_img5.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<img src="images_ordered/modal2_img6.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image"></p>
+
+<p>- Giải thích một khái niệm phức tạp:<br>
++ Cơ bản:<br>
+<img src="images_ordered/modal2_img7.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<img src="images_ordered/modal2_img8.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
++ Cải tiến:<br>
+<img src="images_ordered/modal2_img9.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<img src="images_ordered/modal2_img10.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
++ Nâng cao:<br>
+<img src="images_ordered/modal2_img11.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<img src="images_ordered/modal2_img12.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image"></p>
+
+<p>- Tạo bộ câu hỏi ôn tập cho một chủ đề:<br>
++ Cơ bản:<br>
+<img src="images_ordered/modal2_img13.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<img src="images_ordered/modal2_img14.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<img src="images_ordered/modal2_img15.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
++ Cải tiến:<br>
+<img src="images_ordered/modal2_img16.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<img src="images_ordered/modal2_img17.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<img src="images_ordered/modal2_img18.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
++ Nâng cao:<br>
+<img src="images_ordered/modal2_img19.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<img src="images_ordered/modal2_img20.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<img src="images_ordered/modal2_img21.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image"></p>
+
+<div style="overflow-x:auto;">
+<table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-bottom: 1rem;">
+  <tr>
+    <th>Tiêu chí</th>
+    <th>Cơ bản</th>
+    <th>Cải tiến</th>
+    <th>Nâng cao</th>
+  </tr>
+  <tr>
+    <td>Độ sâu nội dung & Chuyên môn</td>
+    <td>Thông tin bề mặt, lý thuyết suông, mang tính định nghĩa từ điển</td>
+    <td>Chi tiết hơn, có liệt kê các bước và ví dụ cơ bản giúp định hình khái niệm</td>
+    <td>Rất sâu sắc. AI không chỉ đưa ra thông tin mà còn chỉ ra được các "bẫy" tư duy (như lỗi Thread trong JavaFX hay sai lầm khi code Dijkstra), giúp người học hiểu rõ bản chất cốt lõi</td>
+  </tr>
+  <tr>
+    <td>Tính ứng dụng thực tiễn</td>
+    <td>Rất thấp, chỉ mang tính chất đọc tham khảo lướt qua</td>
+    <td>Trung bình. Có thể sử dụng để ôn tập lý thuyết trước kỳ thi</td>
+    <td>Rất cao. AI đưa ra các tình huống giải quyết vấn đề (problem-solving) và liên hệ thực tế sắc bén (như ví dụ VĐV trượt băng nghệ thuật), có thể áp dụng trực tiếp vào làm bài tập hoặc đồ án</td>
+  </tr>
+  <tr>
+    <td>Định dạng & Cấu trúc</td>
+    <td>Một khối văn bản thô (raw text) liền mạch, gây mỏi mắt và khó theo dõi</td>
+    <td>Đã có sự phân chia bằng gạch đầu dòng, tuy nhiên vẫn còn khá đơn điệu</td>
+    <td>Cực kỳ chuyên nghiệp. Sử dụng định dạng Markdown, in đậm các keyword, tạo các block mã giả (pseudocode) và code snippet chuẩn chỉnh, tối ưu hóa trải nghiệm thị giác và dễ dàng ghi chú</td>
+  </tr>
+  <tr>
+    <td>Sắc thái & Giọng điệu</td>
+    <td>Máy móc, vô hồn, giống hệt việc tra cứu Wikipedia</td>
+    <td>Khách quan, mang tính chất hướng dẫn thông tin cơ bản</td>
+    <td>Truyền cảm hứng và có tính tương tác cao. Ngôn từ linh hoạt thay đổi theo nhân dạng (Giáo sư Vật lý, Senior Dev, Trợ giảng), tạo cảm giác như đang được hướng dẫn 1-1</td>
+  </tr>
+</table>
+</div>
+
+<p><strong>Phân tích lý do hiệu quả của prompt nâng cao</strong></p>
+<p>Sự khác biệt rạch ròi giữa các phiên bản không nằm ở việc prompt dài hay ngắn, mà nằm ở mức độ "kiểm soát không gian dữ liệu" của mô hình ngôn ngữ. Với các prompt cơ bản, AI bị thả trôi trong vùng dữ liệu khổng lồ, buộc phải nội suy ý định người dùng và trả về các kết quả có xác suất thống kê trung bình cao nhất (văn mẫu).</p>
+<p>Ngược lại, prompt nâng cao đạt hiệu suất tối đa nhờ sự cộng hưởng của các kỹ thuật: Thứ nhất, kỹ thuật "Role-prompting" (đóng vai) tạo ra một bộ lọc chuyên môn, kích hoạt kho từ vựng và văn phong đặc thù (như từ ngữ của Senior Dev), loại bỏ hoàn toàn các luồng thông tin rác. Thứ hai, kỹ thuật "Chain-of-Thought" (suy nghĩ từng bước) đã phá vỡ thói quen nhảy cóc đến kết luận của AI, ép hệ thống phải phân tích logic tuần tự để giải quyết các khái niệm vật lý phức tạp. Cuối cùng, sự xuất hiện của các rào cản (Constraint - ví dụ: không dùng toán học, giới hạn từ) và kỹ thuật "Few-shot" (đưa ví dụ mẫu tình huống GridPane) đã triệt tiêu triệt để hiện tượng "ảo giác AI" (hallucination), buộc đầu ra phải tuân thủ khuôn mẫu khắt khe của người dùng.</p>
+
+<p><strong>Tổng hợp nguyên tắc viết prompt trong học tập</strong></p>
+<p>Từ quá trình thực nghiệm, có 4 nguyên tắc cốt lõi để tối ưu hóa công cụ AI cho sinh viên:</p>
+<ul>
+  <li><strong>Nguyên tắc Định danh (Role):</strong> Luôn mở đầu bằng việc thiết lập nhân dạng cho AI (Giảng viên, Chuyên gia) và xác định rõ đối tượng mục tiêu (Sinh viên năm nhất, Thực tập sinh) để đồng bộ hóa tần số giao tiếp.</li>
+  <li><strong>Nguyên tắc Rào cản (Constraint):</strong> Luôn đặt ra các giới hạn âm tính (Negative prompt) như "không sử dụng thuật ngữ hàn lâm", "không quá 200 từ" để ngăn chặn sự lan man của máy móc.</li>
+  <li><strong>Nguyên tắc Đóng khung (Few-shot/Format):</strong> Khi cần giải quyết các bài tập thực hành (như code hay thuật toán), việc đưa ra một ví dụ lỗi mẫu hoặc chỉ định định dạng đầu ra (Markdown, chia 3 phần) là bắt buộc để duy trì tính chính xác.</li>
+  <li><strong>Nguyên tắc Tư duy phân lớp (Chain-of-Thought):</strong> Đối phó với các tác vụ khó, phải yêu cầu AI "suy nghĩ theo từng bước" để kiểm chứng tư duy logic trước khi nhận kết quả cuối cùng.</li>
+</ul>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL BÀI 3 -->
+  <div class="modal-overlay" id="modal-3">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeModal('modal-3')">×</button>
+      <div class="modal-header">
+        <div class="modal-tag">Tuần 7 — Bài 3</div>
+        <h3 class="modal-title">Tìm kiếm & Đánh giá thông tin</h3>
+        <div class="modal-subject">Information Literacy · Nghiên cứu học thuật</div>
+      </div>
+      <div class="modal-body">
+<p><strong>Báo cáo: tìm kiếm và đánh giá thông tin học thuật</strong></p>
+<p><strong>Chủ đề:</strong> Kiến trúc hệ thống và tối ưu hóa hiệu năng đồ họa cho Game Pixel 2.5D</p>
+<p><strong>I. Lựa chọn chủ đề và phạm vi tìm kiếm</strong><br>
+Với mong muốn tự tay phát triển những tựa game cuốn hút như Dead Cells hay Blasphemous, việc tìm hiểu quy trình tạo hình và phân chia các bộ phận xử lý logic là vô cùng thiết yếu. Việc xây dựng game 2.5D đòi hỏi khối lượng tính toán tọa độ lớn, do đó, ứng dụng kiến trúc MVC sẽ giúp tách biệt riêng rẽ tầng dữ liệu bản đồ (Model), vòng lặp game (Controller) và kỹ thuật render giả 3D bằng Canvas (View) của JavaFX, đảm bảo trò chơi chạy mượt mà ở mức 60 FPS.</p>
+<p><strong>II. Quy trình tìm kiếm thông tin</strong><br>
+Quá trình thu thập dữ liệu được thiết kế bài bản nhằm bám sát yêu cầu kỹ thuật phức tạp của việc phát triển một tựa game đồ họa trên nền tảng Java. Các từ khóa chuyên ngành được sử dụng linh hoạt, bao gồm "JavaFX game engine", "2.5D isometric projection Java", "MVC architecture in game development", và "JavaFX canvas rendering performance". Việc sử dụng kết hợp các toán tử tìm kiếm nâng cao trên các công cụ truy xuất đã giúp thu hẹp phạm vi, trực tiếp nhắm vào các giải pháp xử lý đồ họa và kiến trúc phần mềm.<br>
+Đầu tiên, các hệ thống cơ sở dữ liệu học thuật quốc tế uy tín như IEEE Xplore, ResearchGate và kho học liệu số được ưu tiên khai thác nhằm tìm kiếm các bài báo khoa học có bình duyệt (peer-reviewed). Giai đoạn này tập trung thu thập các nghiên cứu chuyên sâu về thuật toán giả lập không gian 2.5D, cơ chế vòng lặp game (Game Loop) và cách tối ưu hóa hiệu năng phần cứng khi vẽ đồ họa bằng JavaFX. Các tài liệu được chọn lọc khắt khe dựa trên uy tín của tạp chí xuất bản và giới hạn thời gian trong vòng vài năm trở lại đây nhằm đảm bảo tính cập nhật công nghệ.<br>
+Tiếp theo, để bổ sung tính thực tiễn cho nền tảng lý thuyết hàn lâm, quy trình tìm kiếm được mở rộng sang các đầu sách chuyên khảo về lập trình UI từ nhà xuất bản Apress và tài liệu kỹ thuật chuẩn xác từ chính tập đoàn Oracle. Đặc biệt, các kho lưu trữ mã nguồn mở trên GitHub (điển hình như thư viện FXGL) và các chuyên trang công nghệ (Baeldung) cũng được khai thác triệt để. Nguồn dữ liệu thực chiến này đóng vai trò then chốt trong việc đối chiếu lý thuyết, hỗ trợ giải quyết triệt để bài toán tách biệt logic tính toán (Model) và luồng vẽ đồ họa (View) theo đúng chuẩn kiến trúc MVC.</p>
+<p><strong>III. Bảng tổng hợp và Đánh giá độ tin cậy của nguồn tin</strong></p>
+<div style="overflow-x:auto;">
+<table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-bottom: 1rem;">
+  <tr>
+    <th>STT</th>
+    <th>Tên tài liệu</th>
+    <th>Tác giả / Cơ quan xuất bản</th>
+    <th>Loại nguồn</th>
+    <th>Phân tích độ tin cậy</th>
+    <th>Xếp hạng</th>
+  </tr>
+  <tr>
+    <td>1</td><td>Research and Application of MVC Design Pattern</td><td>Kuang, X. & Xu, X. (IOP Publishing)</td><td>Bài báo khoa học</td><td>Xuất bản trên IOP Conference Series. Phân tích nền tảng của kiến trúc MVC, cực kỳ uy tín và phù hợp để làm cơ sở lý thuyết cho luồng xử lý game.</td><td>Mức 4</td>
+  </tr>
+  <tr>
+    <td>2</td><td>GAMED: Digital educational game development methodology</td><td>Aslan, S. & Balci, O. (SAGE Journals)</td><td>Bài báo khoa học</td><td>Đăng trên tạp chí Simulation. Đưa ra phương pháp luận chuẩn chỉ để phát triển một tựa game từ lúc thiết kế hệ tọa độ đến lúc hoàn thiện.</td><td>Mức 4</td>
+  </tr>
+  <tr>
+    <td>3</td><td>JavaFX Framework and Comparative Analysis</td><td>Cheshta (ResearchGate)</td><td>Bài báo khoa học</td><td>Đánh giá trực tiếp hiệu năng render của JavaFX so với các framework cũ. Cung cấp minh chứng vì sao chọn JavaFX để vẽ map 2.5D.</td><td>Mức 3</td>
+  </tr>
+  <tr>
+    <td>4</td><td>Shoot2learn: fix-and-play educational game</td><td>Mohanarajah, S. (JITE: Research)</td><td>Bài báo khoa học</td><td>Nghiên cứu thực nghiệm về việc xây dựng game bằng mã nguồn Java, có đo đạc chi tiết về hiệu năng và logic xử lý va chạm.</td><td>Mức 4</td>
+  </tr>
+  <tr>
+    <td>5</td><td>Design Patterns for Mobile Games Based on Structural Similarity</td><td>Zhu, Y. et al. (MDPI)</td><td>Bài báo khoa học</td><td>Đăng trên tạp chí Applied Sciences. Phân tích cực sâu về cách áp dụng Design Pattern (bao gồm MVC) để tối ưu hóa mã nguồn game đồ họa.</td><td>Mức 4</td>
+  </tr>
+  <tr>
+    <td>6</td><td>A 2.5D game engine for learning programming</td><td>Pereira, J. et al. (IEEE)</td><td>Bài báo khoa học</td><td>Bài báo khoa học từ hội nghị IEEE Frontiers in Education. Trực tiếp giải quyết bài toán giả lập không gian 2.5D, đúng trọng tâm dự án.</td><td>Mức 4</td>
+  </tr>
+  <tr>
+    <td>7</td><td>Learn JavaFX Game and App Development</td><td>Baimagambetov, A. (Apress)</td><td>Sách chuyên khảo</td><td>Tác giả là cha đẻ của FXGL (Game Engine viết bằng JavaFX). Sách do Apress xuất bản, cung cấp kiến thức thực chiến về Game Loop.</td><td>Mức 4</td>
+  </tr>
+  <tr>
+    <td>8</td><td>Learn JavaFX 8: Building User Experience and Interfaces</td><td>Sharan, K. (Apress)</td><td>Sách chuyên khảo</td><td>Sách giáo khoa kinh điển về JavaFX. Tài liệu bắt buộc phải có để hiểu về cơ chế vẽ Canvas và quản lý các node trên Scene Graph.</td><td>Mức 4</td>
+  </tr>
+  <tr>
+    <td>9</td><td>FXGL: Java / JavaFX / Kotlin Game Library</td><td>AlmasB (GitHub)</td><td>Nguồn Internet</td><td>Mã nguồn mở với gần 5k lượt Stars. Cung cấp góc nhìn thực tế về cách triển khai kiến trúc MVC trong một tựa game JavaFX quy mô lớn.</td><td>Mức 4</td>
+  </tr>
+  <tr>
+    <td>10</td><td>JavaFX Graphics and Animation</td><td>Oracle Corporation</td><td>Nguồn Internet</td><td>Nguồn chính thống từ Oracle. Tài liệu chuẩn xác nhất để tham chiếu các API liên quan đến AnimationTimer cho Game Loop.</td><td>Mức 4</td>
+  </tr>
+  <tr>
+    <td>11</td><td>A Guide to the JavaFX Canvas</td><td>Baeldung</td><td>Nguồn Internet</td><td>Baeldung là blog công nghệ uy tín của dân Java. Bài viết hướng dẫn chi tiết cách dùng GraphicsContext để render hình ảnh (nhân vật, map) lên màn hình.</td><td>Mức 3</td>
+  </tr>
+</table>
+</div>
+
+<p><strong>IV. Danh mục tài liệu tham khảo theo định dạng Harvard</strong></p>
+<ul style="list-style-type: none; padding-left: 0;">
+  <li style="margin-bottom: 0.5rem;">AlmasB (2025) FXGL: Java / JavaFX / Kotlin Game Library. Có tại: https://github.com/AlmasB/FXGL (Truy cập ngày: 22/03/2026).</li>
+  <li style="margin-bottom: 0.5rem;">Aslan, S. and Balci, O. (2015) 'GAMED: Digital educational game development methodology', Simulation, 91(4), pp. 307-319.</li>
+  <li style="margin-bottom: 0.5rem;">Baeldung (2025) A Guide to the JavaFX Canvas. Có tại: https://www.baeldung.com/javafx-canvas (Truy cập ngày: 22/03/2026).</li>
+  <li style="margin-bottom: 0.5rem;">Baimagambetov, A. (2019) Learn JavaFX Game and App Development. New York: Apress.</li>
+  <li style="margin-bottom: 0.5rem;">Cheshta (2017) 'JavaFX Framework and Comparative Analysis', International Journal of Advanced Research in Computer Science, 8(5), pp. 250-254.</li>
+  <li style="margin-bottom: 0.5rem;">Kuang, X. and Xu, X. (2019) 'Research and Application of MVC Design Pattern', IOP Conference Series: Materials Science and Engineering, 569(5), p. 052062.</li>
+  <li style="margin-bottom: 0.5rem;">Mohanarajah, S. et al. (2023) 'Shoot2learn: fix-and-play educational game', Journal of Information Technology Education: Research, 21, pp. 639-661.</li>
+  <li style="margin-bottom: 0.5rem;">Oracle Corporation (2025) JavaFX Graphics and Animation. Có tại: https://docs.oracle.com/javafx/2/animations/jfxpub-animations.htm (Truy cập ngày: 22/03/2026).</li>
+  <li style="margin-bottom: 0.5rem;">Pereira, J. et al. (2021) 'A 2.5D game engine for learning programming', IEEE Frontiers in Education Conference (FIE), pp. 1-5.</li>
+  <li style="margin-bottom: 0.5rem;">Sharan, K. (2015) Learn JavaFX 8: Building User Experience and Interfaces. New York: Apress.</li>
+  <li style="margin-bottom: 0.5rem;">Zhu, Y. et al. (2023) 'Design Patterns for Mobile Games Based on Structural Similarity', Applied Sciences, 13(2), p. 1198.</li>
+</ul>
+
+<p><strong>V. Kết luận</strong></p>
+<p>Quá trình tìm kiếm và đánh giá 11 tài liệu chuyên sâu đã cung cấp nền tảng lý thuyết vững chắc cho việc phát triển tựa game 2.5D trên nền tảng JavaFX. Bằng cách chắt lọc các nghiên cứu chuẩn quốc tế kết hợp cùng tài liệu mã nguồn mở uy tín, báo cáo đã giải quyết trọn vẹn bài toán tích hợp kiến trúc MVC, cơ chế vòng lặp trò chơi (Game Loop) và thuật toán render đồ họa. Việc áp dụng tiêu chí đánh giá khắt khe và chuẩn hóa định dạng trích dẫn Harvard không chỉ giúp loại bỏ các nguồn tin thiếu kiểm chứng, mà còn định hình lộ trình phát triển dự án một cách chuyên nghiệp, đáp ứng đầy đủ yêu cầu học thuật của bài tập.</p>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL BÀI 4 -->
+  <div class="modal-overlay" id="modal-4">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeModal('modal-4')">×</button>
+      <div class="modal-header">
+        <div class="modal-tag">Tuần 6 — Bài 4</div>
+        <h3 class="modal-title">Sử dụng AI có trách nhiệm</h3>
+        <div class="modal-subject">AI Ethics · Đạo đức học thuật</div>
+      </div>
+      <div class="modal-body">
+<p><strong>BÁO CÁO BÀI TẬP TUẦN 6</strong><br>
+Sử dụng AI có trách nhiệm trong học thuật</p>
+<p><strong>I. NGHIÊN CỨU CHÍNH SÁCH SỬ DỤNG AI TẠI ĐẠI HỌC QUỐC GIA HÀ NỘI (VNU)</strong></p>
+<p><strong>1. Tóm tắt chính sách</strong><br>
+Theo Báo Chính phủ [1] và Báo Tuổi Trẻ [2], Đại học Quốc gia Hà Nội (VNU) không cấm AI mà chính thức đưa học phần về ứng dụng trí tuệ nhân tạo vào giảng dạy bắt buộc từ năm 2025. VNU định vị AI là công cụ hỗ trợ tối ưu hóa học tập thiết yếu, nhưng nghiêm cấm tuyệt đối việc nộp các sản phẩm học thuật do AI tạo ra hoàn toàn mà thiếu minh bạch trong trích dẫn nhằm bảo đảm liêm chính học thuật.</p>
+
+<p><strong>2. So sánh với các tổ chức giáo dục khác</strong><br>
+So với một số cơ sở giáo dục vẫn áp dụng chính sách cấm đoán cực đoan và phụ thuộc vào phần mềm quét đạo văn, VNU thể hiện tầm nhìn thực tế hơn khi coi AI là kỹ năng số bắt buộc. Tuy nhiên, nếu đối chiếu với các trường đại học quốc tế đã xây dựng "Thang đo đánh giá AI" chi tiết cho từng dạng bài tập, hệ thống quy định của VNU hiện tại vẫn chỉ dừng lại ở mức định hướng khung đạo đức vĩ mô, chưa có các hướng dẫn trích dẫn vi mô cụ thể.</p>
+<p><strong>3. Nhận định cá nhân</strong><br>
+Định hướng cởi mở này mang lại giá trị thực tiễn cao, giúp quá trình gỡ lỗi hay xây dựng cấu trúc các dự án phần mềm trở nên hiệu quả hơn. Dẫu vậy, nhà trường cần sớm ban hành cẩm nang trích dẫn cụ thể để tránh tình trạng người học lệ thuộc, coi các mô hình AI như một "hộp đen" thuật toán và đánh mất đi năng lực tư duy tối ưu hóa hệ thống từ bên trong.</p>
+<p><strong>Tài liệu tham khảo</strong><br>
+[1] Báo Chính phủ (2025). "Từ năm 2025, toàn bộ sinh viên ĐHQGHN sẽ học về trí tuệ nhân tạo". https://baochinhphu.vn/tu-nam-2025-toan-bo-sinh-vien-dhqghn-se-hoc-ve-tri-tue-nhan-tao-102250513161900453.htm<br>
+[2] Báo Tuổi Trẻ (2025). "Toàn bộ sinh viên Đại học Quốc gia Hà Nội sẽ học ứng dụng AI từ năm nhất". https://tuoitre.vn/toan-bo-sinh-vien-dai-hoc-quoc-gia-ha-noi-se-hoc-ung-dung-ai-tu-nam-nhat-20250512232948613.htm</p>
+<p><strong>II. THỰC HIỆN NHIỆM VỤ HỌC TẬP VỚI SỰ HỖ TRỢ CỦA AI</strong></p>
+<p><strong>1. Mô tả nhiệm vụ</strong><br>
+Tổng hợp tài liệu và lập đề cương nghiên cứu về ứng dụng Automated Machine Learning (AutoML) và các kỹ thuật giải thích mô hình (Explainable AI – XAI) nhằm tối ưu hóa các mô hình "hộp đen". Công cụ sử dụng: Gemini.</p>
+<p><strong>2. Quá trình tương tác và xử lý đầu ra</strong></p>
+<div style="overflow-x:auto;">
+<table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-bottom: 1rem;">
+  <tr>
+    <th>Lượt</th>
+    <th>Prompt & Đầu ra AI</th>
+    <th>Đánh giá & Chỉnh sửa cá nhân</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td><strong>Prompt:</strong> "Tìm tài liệu học thuật về AutoML và XAI từ năm 2022 trở đi, ưu tiên bài báo arXiv."<br><strong>Đầu ra:</strong> AI đưa ra 5 tài liệu, bao gồm các cuốn sách kinh điển như "Automated Machine Learning: Methods, Systems, Challenges" và một số bài viết trên blog công nghệ.</td>
+    <td><strong>Đánh giá:</strong> Kết quả quá bao quát, tài liệu cũ và nguồn blog thiếu tính hàn lâm.<br><strong>Chỉnh sửa:</strong> Bỏ qua nguồn blog. Giới hạn lại mốc thời gian, yêu cầu AI tập trung vào các nguồn chuẩn học thuật.</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td><strong>Prompt:</strong> "Liệt kê 5 bài báo sau năm 2023 trên arXiv về kết hợp AutoML và XAI để giải thích mô hình hộp đen, kèm tóm tắt ngắn."<br><strong>Đầu ra:</strong> AI cung cấp 3 bài báo từ arXiv kèm tóm tắt về cách thuật toán tự động hóa việc chọn đặc trưng (feature selection) kết hợp với XAI.</td>
+    <td><strong>Đánh giá:</strong> Nội dung tóm tắt đúng trọng tâm, cấu trúc mạch lạc.<br><strong>Chỉnh sửa:</strong> Xác minh chéo trên Google Scholar. Phát hiện 1 bài bị nhầm năm xuất bản (2021 thay vì sau 2023). Loại bỏ và viết lại phần tổng hợp bằng văn phong cá nhân.</td>
+  </tr>
+</table>
+</div>
+<p><strong>3. Trích dẫn việc sử dụng AI (Minh bạch học thuật)</strong><br>
+Việc rà soát, đề xuất danh mục tài liệu ban đầu và tóm tắt các khái niệm nền tảng trong báo cáo này được thực hiện với sự hỗ trợ của mô hình ngôn ngữ lớn Gemini (phiên bản tháng 05/2026). Toàn bộ danh mục bài báo khoa học sau đó đã được tác giả đối chiếu, xác minh độc lập trên hệ thống Google Scholar và tự biên tập lại nội dung để đảm bảo tính chính xác.</p>
+<p><strong>III. PHÂN TÍCH CÁC VẤN ĐỀ ĐẠO ĐỨC TRONG HỌC THUẬT</strong></p>
+<p><strong>1. Ranh giới giữa hỗ trợ hợp lý và gian lận học thuật</strong><br>
+Ranh giới giữa việc sử dụng AI để hỗ trợ học tập hay để gian lận phụ thuộc hoàn toàn vào mục đích và mức độ can thiệp của công cụ vào sản phẩm cuối cùng. Nếu người học dùng AI để giải thích các thuật toán phức tạp hoặc tìm lỗi cú pháp trong mã nguồn thì đó là sự hỗ trợ hợp lý nhằm tăng tốc độ tiếp thu kiến thức. Ngược lại, việc yêu cầu AI viết toàn bộ nội dung báo cáo hoặc tạo ra mã nguồn từ đầu rồi nộp mà không qua bộ lọc tư duy của bản thân chính là hành vi gian lận học thuật, tước bỏ vai trò chủ thể sáng tạo của người học.</p>
+<p><strong>2. Vấn đề về quyền sở hữu trí tuệ và trích dẫn</strong><br>
+Bản chất các mô hình ngôn ngữ lớn được huấn luyện trên khối lượng dữ liệu khổng lồ từ nhiều tác giả khác nhau, do đó sản phẩm đầu ra của AI thực chất là sự tổng hợp gián tiếp chất xám của cộng đồng khoa học. Việc sử dụng các thông tin này mà không có quy trình trích dẫn minh bạch — bao gồm cả việc dẫn nguồn công cụ AI lẫn nguồn tài liệu gốc — không chỉ vi phạm bản quyền sở hữu trí tuệ mà còn tạo ra sự bất công đối với các tác giả thực thụ. Do đó, việc xác minh chéo dữ liệu và công khai lịch sử sử dụng lệnh prompt là trách nhiệm đạo đức bắt buộc để đảm bảo tính liêm chính.</p>
+<p><strong>3. Tác động đến quá trình học tập và phát triển kỹ năng</strong><br>
+Sự phụ thuộc quá mức vào AI tạo ra một hệ lụy nguy hiểm về mặt nhận thức, đặc biệt trong các ngành kỹ thuật khi người học dần coi AI như một "hộp đen" hoàn hảo. Khi chỉ biết nhập yêu cầu và nhận kết quả mà bỏ qua việc tìm hiểu các bước tối ưu hóa thuật toán bên trong, tư duy logic và khả năng tự giải quyết vấn đề của sinh viên sẽ bị thui chột. Mối liên kết chặt chẽ giữa ba vấn đề trên cho thấy: gian lận học thuật và vi phạm bản quyền không chỉ làm sai lệch kết quả đánh giá hiện tại, mà còn trực tiếp phá hủy nền tảng kỹ năng chuyên môn dài hạn của người học.</p>
+<p><strong>IV. BỘ NGUYÊN TẮC CÁ NHÂN VỀ SỬ DỤNG AI CÓ TRÁCH NHIỆM</strong></p>
+<div style="overflow-x:auto;">
+<table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-bottom: 1rem;">
+  <tr>
+    <th>#</th>
+    <th>Nguyên tắc</th>
+    <th>Mô tả</th>
+  </tr>
+  <tr>
+    <td>1</td><td>Làm chủ hệ thống</td><td>Không tái sử dụng đoạn mã hoặc cấu trúc thuật toán do AI sinh ra nếu bản thân chưa hiểu rõ cơ chế vận hành. Kiên quyết từ chối tư duy "hộp đen".</td>
+  </tr>
+  <tr>
+    <td>2</td><td>Xác thực kép dữ liệu</td><td>Mọi tài liệu, thông số hoặc thư viện mã nguồn do AI gợi ý đều phải được kiểm chứng chéo qua các nền tảng học thuật độc lập hoặc môi trường thử nghiệm thực tế.</td>
+  </tr>
+  <tr>
+    <td>3</td><td>Tỷ lệ đóng góp 70/30</td><td>AI chỉ hỗ trợ gỡ lỗi và gợi ý (tối đa 30%). Phần cốt lõi về tư duy kiến trúc và logic nền tảng (70%) bắt buộc phải xuất phát từ chất xám cá nhân.</td>
+  </tr>
+  <tr>
+    <td>4</td><td>Minh bạch học thuật</td><td>Chủ động công khai lịch sử thao tác với AI thông qua việc trích dẫn rõ ràng các câu lệnh đã sử dụng trong báo cáo hoặc chú thích vào mã nguồn.</td>
+  </tr>
+  <tr>
+    <td>5</td><td>Bảo mật thông tin dự án</td><td>Không nhập dữ liệu nhạy cảm, thông tin nội bộ của nhóm hay cấu trúc hệ thống chưa công bố lên các công cụ AI công cộng.</td>
+  </tr>
+  <tr>
+    <td>6</td><td>AI là đối tác phản biện</td><td>Ưu tiên sử dụng AI để rà soát lỗ hổng logic và đề xuất giải pháp tối ưu hóa, thay vì yêu cầu AI xây dựng sản phẩm hoàn chỉnh từ đầu.</td>
+  </tr>
+</table>
+</div>
+<img src="images_ordered/modal4_img1.jpg" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Chính sách AI VNU">
+      </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL BÀI 5 -->
+  <div class="modal-overlay" id="modal-5">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeModal('modal-5')">×</button>
+      <div class="modal-header">
+        <div class="modal-tag">Tuần 11 — Bài 5</div>
+        <h3 class="modal-title">Ứng dụng AI tạo sinh nội dung số</h3>
+        <div class="modal-subject">AI Content Creation · Claude, DALL-E 3, Canva AI</div>
+      </div>
+      <div class="modal-body">
+<p><strong>BÁO CÁO THỰC HÀNH</strong><br>
+Ứng Dụng AI Tạo Sinh Trong Sáng Tạo Nội Dung Số<br>
+Chủ đề: AI – Thách Thức và Cơ Hội Cho Sinh Viên IT<br>
+Công cụ AI sử dụng: Claude (AI tạo văn bản) | DALL-E 3 (AI tạo hình ảnh) | Canva AI (AI thiết kế)</p>
+<p><strong>I. MỤC TIÊU VÀ KẾ HOẠCH DỰ ÁN</strong></p>
+<p><strong>1.1. Mục tiêu</strong><br>
+Thành thạo việc sử dụng ít nhất 3 công cụ AI tạo sinh để hỗ trợ quá trình sáng tạo nội dung số, thể hiện qua một bài viết blog hoàn chỉnh về chủ đề "AI – Thách thức và Cơ hội cho Sinh viên IT".</p>
+<img src="images_ordered/modal5_img1.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<p><strong>1.2. Xác định dự án sáng tạo</strong></p>
+<ul>
+  <li><strong>Định dạng:</strong> Bài viết blog có hình ảnh minh họa</li>
+  <li><strong>Chủ đề:</strong> AI – Kẻ Cướp Việc Làm hay Trợ Thủ Đắc Lực của Sinh Viên IT?</li>
+  <li><strong>Đối tượng:</strong> Sinh viên ngành CNTT Việt Nam, năm 1–4</li>
+  <li><strong>Mục tiêu nội dung:</strong> Cung cấp thông tin + thuyết phục sinh viên IT chủ động với AI</li>
+</ul>
+<p><strong>II. QUÁ TRÌNH SỬ DỤNG AI VÀ CÁC PROMPT</strong></p>
+<p><strong>2.1. Công cụ 1 – Claude (AI Tạo Văn Bản)</strong><br>
+Claude được sử dụng để tạo nội dung chính của bài viết và các caption mạng xã hội. Đây là công cụ cốt lõi vì bài viết blog yêu cầu nội dung dài, mạch lạc và có chiều sâu.</p>
+<p>📝 <strong>Prompt 1 – Viết bài blog chính:</strong><br>
+"Bạn là một chuyên gia giáo dục công nghệ. Hãy viết một bài viết blog khoảng 700-900 từ bằng tiếng Việt về chủ đề: AI – Kẻ Cướp Việc Làm hay Trợ Thủ Đắc Lực của Sinh Viên IT? Cấu trúc 5 phần rõ ràng, giọng văn gần gũi, trẻ trung, có số liệu thực tế, kết thúc bằng câu hỏi mời bình luận."<br>
+<strong>Kết quả:</strong> Claude trả về bài viết ~820 từ, đủ cấu trúc 5 phần, có số liệu từ WEF 2024 và thống kê về GitHub Copilot. Phần cần chỉnh sửa: bổ sung thêm ví dụ thực tế Việt Nam (FPT, VNG), điều chỉnh một số câu văn cho tự nhiên hơn với sinh viên trong nước.</p>
+<img src="images_ordered/modal5_img2.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Bài viết blog AI">
+<p>📝 <strong>Prompt 2 – Tạo caption mạng xã hội:</strong><br>
+"Viết 3 phiên bản caption đăng Facebook/LinkedIn cho bài viết về AI và Sinh viên IT: (1) Gây tò mò dạng câu hỏi dưới 50 chữ, (2) Chia sẻ insight có hashtag dưới 80 chữ, (3) Kể chuyện ngắn cảm xúc dưới 100 chữ."<br>
+<strong>Kết quả:</strong> 3 caption chất lượng khác nhau. Giữ nguyên hoàn toàn phiên bản 1 và 2; chỉnh sửa phiên bản 3 để thêm trải nghiệm cá nhân thực tế.</p>
+<p><strong>2.2. Công cụ 2 – DALL-E 3 (AI Tạo Hình Ảnh)</strong><br>
+DALL-E 3 được sử dụng để tạo 3 hình ảnh minh họa cho bài viết. Vì API tiếng Anh, các prompt cần được viết bằng tiếng Anh với mô tả chi tiết.</p>
+<p>🎨 <strong>Prompt ảnh bìa:</strong><br>
+"A Vietnamese IT student sitting at a desk, collaborating with a glowing AI holographic assistant. The student looks confident and empowered. Futuristic university library background, warm lighting, flat illustration style, 16:9 ratio, suitable for blog header."</p>
+<img src="images_ordered/modal5_img3.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="DALL-E hình ảnh">
+<p>🎨 <strong>Prompt ảnh thách thức vs cơ hội:</strong><br>
+"Split illustration: left side shows stressed student replaced by AI robots (dark tones), right side shows empowered student directing AI tools like conductor (bright tones). Vietnamese student appearance. Flat design, infographic style, 16:9."<br>
+<strong>Kết quả:</strong> Ảnh chất lượng cao, màu sắc phù hợp. Vấn đề gặp phải: trong lần đầu generate không thể hiện rõ tinh thần hợp tác với AI. Phải dùng thêm những câu lệnh để nhấn mạnh và generate lại.</p>
+<p><strong>2.3. Công cụ 3 – Canva AI (AI Hỗ Trợ Thiết Kế)</strong><br>
+Canva AI được dùng để thiết kế layout bài viết chuyên nghiệp, tạo banner và sắp xếp hình ảnh do DALL-E tạo ra.</p>
+<p>🖼️ <strong>Prompt Magic Design:</strong><br>
+"AI empowering IT students, futuristic, Vietnamese youth, dark blue theme, blog banner 1200x628px"<br>
+<strong>Kết quả:</strong> Layout chuyên nghiệp, phối màu xanh-đen nhất quán. Hạn chế: template AI đề xuất đôi khi quá giống nhau, cần thay đổi nhiều để có phong cách riêng (chiếm ~50% công sức).</p>
+<img src="images_ordered/modal5_img4.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Canva AI Design">
+<p><strong>III. SẢN PHẨM CUỐI – BÀI VIẾT HOÀN CHỈNH</strong></p>
+<p><strong>IV. BẢNG GHI LẠI QUÁ TRÌNH SỬ DỤNG AI</strong></p>
+<div style="overflow-x:auto;">
+<table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-bottom: 1rem;">
+  <tr>
+    <th>Tiêu chí</th>
+    <th>Prompt đã dùng</th>
+    <th>Kết quả nhận được</th>
+    <th>Chỉnh sửa</th>
+    <th>Tỉ lệ AI/Tự làm</th>
+  </tr>
+  <tr>
+    <td>Claude (Văn bản)</td><td>Viết bài blog 700-900 chữ về AI và sinh viên IT, cấu trúc 5 phần, giọng trẻ trung</td><td>Bài viết ~820 từ, đủ cấu trúc, có số liệu WEF và GitHub Copilot</td><td>Thêm ví dụ thực tế Việt Nam, điều chỉnh giọng văn phù hợp SV</td><td>AI ~60% / Tự làm ~40%</td>
+  </tr>
+  <tr>
+    <td>DALL-E 3 (Hình ảnh)</td><td>Vietnamese IT student collaborating with AI, futuristic style, blue-orange palette, 16:9</td><td>3 ảnh minh họa chất lượng cao, màu sắc phù hợp, phong cách flat design</td><td>Chỉnh màu trong Canva, cắt crop ảnh bìa, xóa nền ảnh phụ</td><td>AI ~80% / Tự làm ~20%</td>
+  </tr>
+  <tr>
+    <td>Canva AI (Thiết kế)</td><td>Blog banner AI empowering IT students, futuristic, blue orange theme, Magic Design</td><td>3 template layout blog, tự động phối màu và font chữ phù hợp</td><td>Thay đổi font chữ, điều chỉnh bố cục, thêm pull-quote và CTA button</td><td>AI ~50% / Tự làm ~50%</td>
+  </tr>
+</table>
+</div>
+<p><strong>Nhận xét tổng quan về quá trình:</strong></p>
+<ul>
+  <li>Tổng thể, AI đóng góp khoảng 70–75% đầu ra, phần còn lại là chỉnh sửa và bổ sung sáng tạo cá nhân.</li>
+  <li>Phần nội dung văn bản cần nhiều chỉnh sửa nhất (40% tự làm) vì cần thêm bối cảnh Việt Nam.</li>
+  <li>Phần hình ảnh ít cần chỉnh sửa nhất (chỉ ~20%) vì DALL-E tạo ra ảnh khá sẵn sàng để dùng.</li>
+  <li>Phần thiết kế cần 50% công sức cá nhân vì cần tạo phong cách riêng thay vì dùng template mặc định.</li>
+</ul>
+<p><strong>V. SO SÁNH VÀ PHÂN TÍCH CÔNG CỤ AI</strong></p>
+<div style="overflow-x:auto;">
+<table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-bottom: 1rem;">
+  <tr>
+    <th>Tiêu chí</th>
+    <th>Claude (Văn bản)</th>
+    <th>DALL-E 3 (Hình ảnh)</th>
+    <th>Canva AI (Thiết kế)</th>
+  </tr>
+  <tr>
+    <td>Chất lượng đầu ra</td><td>Rất cao</td><td>Trung bình</td><td>Trung bình</td>
+  </tr>
+  <tr>
+    <td>Dễ sử dụng</td><td>Rất dễ</td><td>Dễ</td><td>Dễ</td>
+  </tr>
+  <tr>
+    <td>Tùy chỉnh được</td><td>Linh hoạt cao</td><td>Có giới hạn</td><td>Template sẵn</td>
+  </tr>
+  <tr>
+    <td>Phù hợp SV VN</td><td>Tiếng Việt tốt</td><td>Mô tả tiếng Anh</td><td>Có tiếng Việt</td>
+  </tr>
+  <tr>
+    <td>Điểm mạnh</td><td>Nội dung sâu, mạch lạc</td><td>Ảnh phân giải cao</td><td>Layout nhanh, chuyên nghiệp</td>
+  </tr>
+  <tr>
+    <td>Hạn chế</td><td>Cần chỉnh sửa thực tế VN</td><td>Cần generate vài lần</td><td>Ít sáng tạo đột phá</td>
+  </tr>
+  <tr>
+    <td>Tỉ lệ giữ nguyên</td><td>~80%</td><td>~80%</td><td>~50%</td>
+  </tr>
+</table>
+</div>
+<img src="images_ordered/modal5_img5.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="So sánh công cụ AI">
+<p><strong>Phân tích chi tiết theo từng công cụ</strong></p>
+<ul>
+  <li>✍️ <strong>Claude – AI Tạo Văn Bản:</strong> Claude thể hiện sức mạnh vượt trội trong việc tạo nội dung dài, có cấu trúc và mạch lạc. Khả năng hiểu ngữ cảnh tiếng Việt tốt, tạo ra bài viết tự nhiên, không máy móc. Điểm cần cải thiện: thiếu ví dụ cụ thể từ bối cảnh Việt Nam (FPT, VNG, các startup trong nước) – cần bổ sung thủ công. Số liệu đôi khi cần kiểm chứng lại. Đây là công cụ không thể thiếu cho dự án bài viết.</li>
+  <li>🎨 <strong>DALL-E 3 – AI Tạo Hình Ảnh:</strong> Chất lượng hình ảnh cao, màu sắc đẹp và phong cách nhất quán khi prompt được thiết kế tốt. Thách thức chính là cần prompt bằng tiếng Anh và rất chi tiết – đòi hỏi kỹ năng prompt engineering. Cần chạy nhiều lần (2–3 lần) mới ra kết quả ưng ý.</li>
+  <li>🖼️ <strong>Canva AI – AI Hỗ Trợ Thiết Kế:</strong> Canva AI mạnh ở tính dễ dùng và tích hợp – không cần kỹ năng thiết kế chuyên sâu. Magic Design tạo ra layout ổn trong vài giây. Tuy nhiên, các template AI tạo ra thường khá generic và cần nhiều tùy chỉnh để có phong cách riêng. Phù hợp nhất cho việc tạo banner, thumbnail và layout blog nhanh chóng.</li>
+</ul>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL BÀI 6 -->
+  <div class="modal-overlay" id="modal-6">
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeModal('modal-6')">×</button>
+      <div class="modal-header">
+        <div class="modal-tag">Tuần 14 — Bài 6</div>
+        <h3 class="modal-title">Công cụ hợp tác trực tuyến</h3>
+        <div class="modal-subject">Online Collaboration · Trello, GitHub, Discord</div>
+      </div>
+      <div class="modal-body">
+<p><strong>BÁO CÁO CÁ NHÂN</strong><br>
+Về việc sử dụng công cụ hợp tác trực tuyến trong dự án nhóm<br>
+Người thực hiện: Lê Tuấn Trung<br>
+Phạm vi minh chứng: 01 tuần làm việc nhóm trực tuyến<br>
+Nhóm công cụ sử dụng: Trello, Github, Discord<br>
+Mục tiêu cá nhân trong tuần minh chứng là quản lý 100% nhiệm vụ được giao bằng công cụ số, cập nhật tiến độ thường xuyên, chủ động tương tác hỗ trợ thành viên khác, đồng thời xây dựng một hệ thống tài liệu rõ cấu trúc, rõ quyền truy cập và dễ truy vết. Báo cáo này tập trung vào vai trò, thao tác và hiệu quả làm việc của cá nhân thay vì mô tả sản phẩm nhóm một cách dàn trải.</p>
+<p><strong>1. Bối cảnh dự án và vai trò cá nhân</strong><br>
+Trong tuần minh chứng, nhóm tôi thực hiện một dự án nhỏ theo hình thức cộng tác trực tuyến. Sản phẩm của nhóm mình cần làm là một hệ thống đấu giá trực tuyến. Do lịch học và thời gian rảnh của các thành viên không trùng nhau, phần lớn hoạt động phân công, chỉnh sửa, góp ý và nhắc tiến độ đều diễn ra trên môi trường số.<br>
+Trong bối cảnh đó, vai trò cá nhân của tôi là quản lý các nhiệm vụ được giao, theo dõi tiến độ thực hiện, trực tiếp đóng góp nội dung vào tài liệu chung, chuẩn hóa kho tệp làm việc và duy trì nhịp trao đổi với nhóm. Tôi xem đây không chỉ là việc hoàn thành phần việc của mình mà còn là quá trình rèn thói quen làm việc có hệ thống, có dấu vết thao tác và có khả năng phối hợp từ xa một cách chủ động.<br>
+Để tạo một quy trình làm việc khép kín, tôi lựa chọn đồng thời bốn công cụ ở bốn nhóm chức năng khác nhau: Trello để quản lý tác vụ, Github để lưu trữ và chia sẻ tệp, Discord để giao tiếp nhóm. Việc phân vai rõ ràng cho từng công cụ giúp giảm nhầm lẫn, hạn chế thất lạc phiên bản và tạo ra hệ thống minh chứng đủ rõ để đối chiếu với rubric đánh giá.</p>
+<img src="images_ordered/modal6_img1.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<p><strong>2. Hệ công cụ hợp tác trực tuyến đã thiết lập và cách tối ưu sử dụng</strong></p>
+<p><strong>Bảng 1. Hệ công cụ sử dụng trong báo cáo cá nhân</strong></p>
+<div style="overflow-x:auto;">
+<table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-bottom: 1rem;">
+  <tr>
+    <th>Công cụ</th>
+    <th>Nhóm chức năng</th>
+    <th>Thiết lập / tối ưu</th>
+    <th>Vai trò đối với công việc cá nhân</th>
+  </tr>
+  <tr>
+    <td>Trello</td><td>Quản lý dự án</td><td>Tạo board theo các cột Backlog - To do - Doing - Review - Done; dùng label mức độ ưu tiên, checklist công việc, deadline và gắn link tài liệu liên quan.</td><td>Theo dõi toàn bộ nhiệm vụ cá nhân, nhìn rõ trạng thái từng việc và cập nhật tiến độ theo mốc cụ thể.</td>
+  </tr>
+  <tr>
+    <td>Github</td><td>Lưu trữ và chia sẻ</td><td>Tổ chức thư mục nhiều cấp; đặt quy tắc tên file thống nhất; phân cấp rõ ràng theo mục đích sử dụng cua từng thư mục</td><td>Lưu trữ tập trung, tránh thất lạc dữ liệu và giảm tình trạng nhiều phiên bản trùng lặp trên máy cá nhân.</td>
+  </tr>
+  <tr>
+    <td>Discord</td><td>Giao tiếp nhóm</td><td>Tạo kênh trao đổi luôn trong trạng thái hoạt động và có thể ra vào một cách tùy ý giúp linh hoạt trong các công tác hoạt động</td><td>Duy trì nhịp tương tác, xử lý vướng mắc nhanh và hỗ trợ thành viên khác ngay trong dòng công việc chung.</td>
+  </tr>
+</table>
+</div>
+<img src="images_ordered/modal6_img2.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<p>Ngay từ đầu, tôi thống nhất dùng họ tên thật trên các nền tảng, cập nhật hồ sơ cá nhân rõ ràng và gắn liên kết chéo giữa các công cụ. Nhờ vậy, mỗi tác vụ trên Trello đều có thể dẫn tới tài liệu tương ứng trên Github, mọi thay đổi của hệ thống đều được ghi lại qua commit của Github, bên cạnh đó mọi người có thể có nhưng cuộc bàn luận ngắn gọn trong các kênh trao đổi trên Discord.</p>
+<img src="images_ordered/modal6_img3.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<p><strong>3. Nhật ký triển khai trong 01 tuần</strong></p>
+<p><strong>Bảng 2. Nhật ký các hoạt động cá nhân trong tuần minh chứng</strong></p>
+<div style="overflow-x:auto;">
+<table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-bottom: 1rem;">
+  <tr>
+    <th>Thời điểm</th>
+    <th>Công cụ chính</th>
+    <th>Hoạt động cá nhân</th>
+    <th>Kết quả đạt được</th>
+  </tr>
+  <tr>
+    <td>Ngày 1</td><td>Trello, Docs, Discord</td><td>Tham gia không gian làm việc chung; hoàn thiện tên hiển thị cá nhân; nhận danh sách nhiệm vụ và tạo các đầu việc cá nhân trên board.</td><td>Có hồ sơ rõ danh tính; 100% nhiệm vụ được ghi nhận lên hệ thống ngay từ đầu.</td>
+  </tr>
+  <tr>
+    <td>Ngày 2 đến ngày 4</td><td>Trello, Github, Docs</td><td>Xây dựng hệ thống theo nhiệm vụ cụ thể của mỗi cá nhận, các thắc mắc, cải tiến, sáng kiến, kinh nghiệm, thay đổi được cập nhật rõ ràng chi tiết từng phần trên Docs</td><td>Tiến độ được minh bạch; nhóm nắm rõ ai đang phụ trách hạng mục nào. Kho tệp gọn, dễ tìm; hạn chế nhầm phiên bản và tránh chỉnh sửa nhầm vào.</td>
+  </tr>
+  <tr>
+    <td>Ngày 5 đến ngày 6</td><td>Trello, Github, Docs, Discord</td><td>Kiểm tra sơ bộ hệ thống một lượt sau đó trao đối trực tiếp qua Discord để giải quyết nhanh các khúc mắc và sửa đổi các phần còn thiếu sót để hoàn thiện hệ thống</td><td>Tăng tính chủ động trong tương tác; đảm bảo hệ thống hoàn thiện mốt cách tốt nhất và đúng tiến độ.</td>
+  </tr>
+  <tr>
+    <td>Cuối tuần</td><td>Toàn bộ hệ công cụ</td><td>Rà soát lần cuối, chốt trạng thái công việc, lưu minh chứng cá nhân và chuẩn bị file nộp.</td><td>Hoàn thành chuỗi làm việc có thể truy vết từ nhiệm vụ, tài liệu, tệp đến trao đổi nhóm.</td>
+  </tr>
+</table>
+</div>
+<img src="images_ordered/modal6_img4.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<p><strong>Bảng 3. Tổng hợp chỉ số công việc cá nhân trong tuần</strong></p>
+<div style="overflow-x:auto;">
+<table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-bottom: 1rem;">
+  <tr>
+    <th>Chỉ số</th>
+    <th>Kết quả</th>
+    <th>Ý nghĩa đối với rubric</th>
+  </tr>
+  <tr>
+    <td>Số công cụ sử dụng</td><td>03 công cụ / 03 nhóm chức năng</td><td>Đáp ứng yêu cầu tối thiểu là 03 công cụ thuộc các nhóm khác nhau.</td>
+  </tr>
+  <tr>
+    <td>Nhiệm vụ cá nhân có deadline</td><td>Hoàn thành tất cả các nhiệm vụ</td><td>Bảo đảm mọi đầu việc cá nhân đều được mô tả rõ và có thời hạn cụ thể.</td>
+  </tr>
+  <tr>
+    <td>Lần cập nhật tiến độ</td><td>07 lần / tuần</td><td>Vượt mốc tối thiểu 03 lần cập nhật tiến độ trong tuần.</td>
+  </tr>
+  <tr>
+    <td>Lượt tương tác hỗ trợ nhóm</td><td>23 lượt / tuần</td><td>Đạt mức chủ động tương tác trên 10 lượt theo yêu cầu mức cao.</td>
+  </tr>
+  <tr>
+    <td>Tình trạng hệ thống</td><td>Hoàn thiện tốt</td><td>Đáp ứng tiêu chí quản lý tài nguyên và tệp tin ở mức cao.</td>
+  </tr>
+</table>
+</div>
+<img src="images_ordered/modal6_img5.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+<p><strong>4. Quản lý tác vụ và tương tác cá nhân</strong><br>
+Trong hệ thống công việc của tôi, Trello đóng vai trò là "trục xương sống" cho toàn bộ tiến độ cá nhân. Thay vì chỉ nhớ việc bằng tin nhắn hoặc ghi chú rời rạc, tôi tách mỗi nhiệm vụ thành một card riêng, mô tả mục tiêu, người phụ trách, deadline, mức ưu tiên và checklist các bước nhỏ. Cách làm này khiến công việc trở nên đo được: tôi biết chính xác việc nào đã xong, việc nào đang chậm và việc nào cần phối hợp thêm với thành viên khác.</p>
+<img src="images_ordered/modal6_img6.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Trello Board">
+<img src="images_ordered/modal6_img7.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Trello Card Detail">
+
+<p><strong>Bảng 4. Danh sách nhiệm vụ cá nhân được theo dõi trên Trello</strong></p>
+<div style="overflow-x:auto;">
+<table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-bottom: 1rem;">
+  <tr>
+    <th>Nhiệm vụ</th>
+    <th>Công cụ theo dõi</th>
+    <th>Deadline</th>
+    <th>Trạng thái cuối tuần</th>
+  </tr>
+  <tr>
+    <td>Tổng hợp yêu cầu đề bài và rubric</td><td>Trello + Discord</td><td>Đầu tuần</td><td>Hoàn thành</td>
+  </tr>
+  <tr>
+    <td>Xây dựng hệ thống</td><td>Trello + Github + Discord</td><td>Ngày 2 đến ngày 4</td><td>Hoàn thành</td>
+  </tr>
+  <tr>
+    <td>Kiểm tra sơ bộ hệ thống thống kê công việc còn lại, giải quyết các vấn đề còn thiết sót của mỗi cá nhân</td><td>Trello + Github + Discord</td><td>Ngày 5</td><td>Hoàn thành</td>
+  </tr>
+  <tr>
+    <td>Hoàn thiện hệ thống kiểm tra lại tổng quát lần cuối</td><td>Trello + Github + Discord</td><td>Cuối tuần</td><td>Hoàn thành</td>
+  </tr>
+</table>
+</div>
+<p>Github đóng vai trò quan trọng trong việc quản lí các tệp tin hệ thống tránh làm mất những file đã làm tốt chỉ lọc các commit có thay đổi giúp các file đã hoàn thiện không bị ảnh hưởng, bên cạnh đó việc giao tiếp nhanh chóng và dễ dàng qua Discord, Messenger giúp mọi người chủ động hơn trong mọi tình huống bất ngờ xảy ra đối với hệ thống nhằm kiểm soát mọi rủi ro do việc sửa dổi cũng như nhanh chóng giải quyết các khúc mắc.</p>
+<img src="images_ordered/modal6_img8.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="GitHub Repository">
+
+<p><strong>5. Quản lý tài nguyên và tệp tin</strong><br>
+Nếu Trello giúp nhìn rõ việc phải làm thì Github giúp tôi kiểm soát "nguồn sự thật duy nhất" của tài liệu nhóm. Ngay trong tuần minh chứng, tôi sắp xếp lại toàn bộ thư mục theo logic nhiều cấp, tách rõ nơi lưu đề bài, kế hoạch, tài liệu đang làm, sản phẩm cuối và minh chứng cá nhân. Cách phân tầng này giúp mỗi thành viên biết cần vào đâu để tìm đúng tệp, đồng thời hạn chế tối đa việc lưu file trùng lặp ở nhiều vị trí khác nhau.</p>
+<img src="images_ordered/modal6_img9.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Image">
+
+<p><strong>6. Đánh giá hiệu quả của từng công cụ đối với công việc cá nhân</strong></p>
+<p><strong>6.1. Trello</strong><br>
+Trello hiệu quả nhất ở khả năng trực quan hóa công việc. Chỉ cần nhìn board, tôi biết ngay lượng việc còn tồn, mức ưu tiên và trạng thái hiện tại của từng đầu việc. Đối với cá nhân, ưu điểm lớn nhất là hình thành thói quen làm việc theo nhiệm vụ có deadline chứ không làm theo cảm tính. Bên cạnh đó, việc gắn link tài liệu liên quan vào từng card còn giúp tiết kiệm đáng kể thời gian tìm kiếm.</p>
+<p><strong>6.2. Github</strong><br>
+GitHub hỗ trợ quản lý phiên bản và theo dõi tiến độ công việc một cách rõ ràng, đặc biệt phù hợp khi làm việc nhóm trên các tài liệu hoặc dự án có nhiều thay đổi. Đối với cá nhân, hiệu quả lớn nhất là khả năng lưu lại lịch sử chỉnh sửa chi tiết, giúp tôi dễ dàng kiểm soát nội dung đã thực hiện cũng như khôi phục khi cần thiết. Ngoài ra, việc sử dụng commit message giúp tôi rèn luyện thói quen ghi chú công việc rõ ràng và có hệ thống. GitHub không chỉ là nơi lưu trữ mà còn giúp nâng cao tính kỷ luật và minh bạch trong quá trình làm việc.</p>
+<p><strong>6.3. Discord</strong><br>
+Discord là công cụ giao tiếp linh hoạt, hỗ trợ trao đổi thông tin nhanh chóng giữa các thành viên trong nhóm. Đối với cá nhân, Discord giúp tôi chủ động hơn trong việc cập nhật tiến độ và phản hồi ý kiến của các thành viên khác. Việc trao đổi thông qua các kênh chat riêng biệt giúp nội dung thảo luận được phân loại rõ ràng, tránh bị trôi thông tin quan trọng. Bên cạnh đó, khả năng gửi file, hình ảnh và tạo cuộc gọi nhóm giúp việc phối hợp công việc trở nên thuận tiện hơn. Nhờ đó, tôi có thể duy trì sự kết nối liên tục với nhóm và nâng cao hiệu quả làm việc chung.</p>
+<img src="images_ordered/modal6_img10.png" style="width: 100%; border-radius: 8px; margin: 12px 0; border: 1px solid #e2e8f0;" alt="Discord Discussion">
+
+<p><strong>7. Ba thách thức trong quá trình tương tác nhóm và cách giải quyết</strong><br>
+Ba thách thức nổi bật nhất trong quá trình phối hợp nhóm và cách tôi xử lý được tóm tắt dưới đây.</p>
+<p><strong>Bảng 6. Phân tích 03 thách thức và 03 giải pháp cá nhân</strong></p>
+<div style="overflow-x:auto;">
+<table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse; margin-bottom: 1rem;">
+  <tr>
+    <th>Thách thức</th>
+    <th>Biểu hiện và tác động</th>
+    <th>Giải pháp cá nhân và kết quả</th>
+  </tr>
+  <tr>
+    <td>1. Lệch nhịp cập nhật tiến độ</td><td>Thành viên online lệch giờ nên dễ xuất hiện khoảng trống thông tin; khó biết việc nào đã xong.</td><td>Tôi đưa mọi đầu việc lên Trello, cập nhật theo mốc cố định và dùng Teams báo thay đổi quan trọng. Kết quả: tiến độ minh bạch hơn, giảm tình trạng hỏi lại.</td>
+  </tr>
+  <tr>
+    <td>2. Chồng chéo khi cùng sửa tài liệu</td><td>Khi nhiều người cùng chỉnh một nội dung, tài liệu dễ bị sửa đè hoặc mất ý nếu không phân vùng trách nhiệm.</td><td>Github là công cụ hiệu quả trong việt cập nhật và sửa đổi hệ thống nó sẽ cảnh bảo khi chỉnh sửa bị trồng chéo để các thành viên có thể nhanh chóng hủy việc chỉnh sửa bằng việc quay lại các commit cũ. Không những thế công việc trong nhóm được phân chia rất rõ ràng để đám bảo không có sự trồng chéo xảy ra</td>
+  </tr>
+  <tr>
+    <td>3. Nhầm phiên bản và thất lạc tệp</td><td>Việc lưu file ở nhiều nơi hoặc đặt tên tùy tiện khiến tìm tài liệu chậm và tăng nguy cơ nộp nhầm file.</td><td>Github là công cụ vô cùng tốt vì các thao tác đơn giản và nó được duy trì như một thói quen khiến việc thất lạc tài liệu rất hiến khi xảy ra nhưng không vì thế mà chúng tôi hay cá nhân tôi có quyền mất tập trung trong việc kiểm soát tài liệu.</td>
+  </tr>
+</table>
+</div>
+<p>Qua ba tình huống trên, tôi rút ra rằng hiệu quả phối hợp nhóm đến từ việc gán cho mỗi công cụ một chức năng rõ ràng và duy trì kỷ luật cập nhật.</p>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Đóng modal khi click bên ngoài
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', function (e) {
+        if (e.target === this) {
+          this.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
